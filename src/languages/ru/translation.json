@@ -1,0 +1,49 @@
+{
+    "mainWords" : {
+        "amount": "Количество",
+        "from": "От",
+        "to": "К"
+    },
+    "data": [
+        {
+            "id": 1,
+            "flag": "euro.png",
+            "abbreviation": "EUR",
+            "currency": "Евро",
+            "eur_amd": 0.00240011,
+            "eur_rub": 0.0145017,
+            "eur_usd": 0.942174,
+            "symbol": "€"
+        },
+        {
+            "id": 2,
+            "flag": "usd.png",
+            "abbreviation": "USD",
+            "currency": "Доллар США",
+            "usd_amd": 392.521,
+            "usd_rub": 0.0154810,
+            "usd_eur": 0.939609,
+            "symbol": "$"
+        },
+        {
+            "id": 3,
+            "flag": "amd.jpg",
+            "abbreviation": "AMD",
+            "currency": "Армянский драм",
+            "amd_usd": 0.00254644,
+            "amd_rub": 0.164151,
+            "amd_eur": 0.00239542,
+            "symbol": "֏"
+        },
+        {
+            "id": 4,
+            "flag": "rub.png",
+            "abbreviation": "RUB",
+            "currency": "Российский рубль",
+            "rub_usd": 0.0154328,
+            "rub_amd": 6.05681,
+            "rub_eur": 0.0145372,
+            "symbol": "₽"
+        }
+    ]
+}

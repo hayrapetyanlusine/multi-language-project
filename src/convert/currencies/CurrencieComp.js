@@ -9,7 +9,7 @@ export function CurrencieComponent({ data, refs, closeClick, currData }) {
     return (
         <div>
             <span id="curr-inp">
-                <img className="flag-img" alt="flag" src={currData.flag} />
+                <img className="flag-img" alt="flag" src={require(`../../img/${currData.flag}`)} />
                 <input
                     className="currency-input"
                     type="text"
@@ -25,7 +25,7 @@ export function CurrencieComponent({ data, refs, closeClick, currData }) {
                         data.map(currency => {
                             return (
                                 <li key={currency.id} onClick={chooseCurrency(currency)}>
-                                    <img className="flag-img" alt='img' src={currency.flag} />
+                                    <img className="flag-img" alt='img' src={require(`../../img/${currency.flag}`)} />
                                     <p>{currency.abbreviation} - {currency.currency}</p>
                                 </li>
                             )

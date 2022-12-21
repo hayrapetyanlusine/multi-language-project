@@ -4,7 +4,7 @@ import { CloseSvg, DownSvg, SwapSvg } from './svg'
 import { CurrencieComponent } from "./currencies/CurrencieComp";
 import { Result } from "./result/Result";
 
-export function Convert({ data }) {
+export function Convert({ data, mainWords }) {
     const [amount, setAmount] = useState(1);
     const [openFrom, setOpenFrom] = useState(false);
     const [openTo, setOpenTo] = useState(false);
@@ -15,7 +15,6 @@ export function Convert({ data }) {
     const inputRef = useRef();
 
     const fromBtnClick = (currency) => {
-        console.log("from", currency);
         currency === undefined ? setFromData(fromData) : setFromData(currency);
         setOpenFrom(!openFrom);
         openFrom ? fromRef.current.classList.remove("open-from") : fromRef.current.classList.add("open-from");
@@ -35,7 +34,7 @@ export function Convert({ data }) {
     return (
         <div id="convert-container">
             <div className='currency-converter__inputs'>
-                <label className='name'> Amount </label>
+                <label className='name'> {mainWords.amount}</label>
                 <div className="inp-value" onClick={() => inputRef.current.focus()}>
                     <span> $ </span>
                     <input
@@ -47,7 +46,7 @@ export function Convert({ data }) {
                     />
                 </div>
 
-                <label className='name'> From </label>
+                <label className='name'> {mainWords.from} </label>
                 <div className="from">
                     <button className="btn" onClick={() => fromBtnClick()}>
                         {openFrom ? <CloseSvg /> : <DownSvg />}
@@ -62,19 +61,18 @@ export function Convert({ data }) {
                     </button>
                 </div>
 
-                <label className='name'> To </label>
+                <label className='name'> {mainWords.to} </label>
                 <div className="to">
-                        <button className="btn" onClick={() => toBtnClick()}>
-                         {openTo ? <CloseSvg /> : <DownSvg />}
-                        </button>
+                    <button className="btn" onClick={() => toBtnClick()}>
+                        {openTo ? <CloseSvg /> : <DownSvg />}
+                    </button>
                     <CurrencieComponent data={data} refs={toRef} closeClick={toBtnClick} currData={toData} />
                 </div>
             </div>
 
             <div className="result-container">
-                <Result amount={amount} />
+                <Result amount={amount} fromInputData={fromData} toInputData={toData} />
             </div>
-
         </div>
     )
 }
