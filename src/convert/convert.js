@@ -36,7 +36,7 @@ export function Convert({ data, mainWords }) {
             <div className='currency-converter__inputs'>
                 <label className='name'> {mainWords.amount}</label>
                 <div className="inp-value" onClick={() => inputRef.current.focus()}>
-                    <span> $ </span>
+                    <span> {fromData.symbol} </span>
                     <input
                         type="text"
                         placeholder="20.00"
