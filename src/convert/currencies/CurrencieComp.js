@@ -1,24 +1,30 @@
 import "./CurrencieComp.css"
 import React from 'react'
 
-export function CurrencieComponent({ data, refs }) {
+export function CurrencieComponent({ data, refs, closeClick, currData }) {
+    const chooseCurrency = (currency) => () => {
+        closeClick(currency);
+    }
+
     return (
         <div>
             <span id="curr-inp">
-                <img className="flag-img" alt="flag" src={data[0].flag} />
+                <img className="flag-img" alt="flag" src={currData.flag} />
                 <input
                     className="currency-input"
                     type="text"
                     placeholder="Type to search..."
+                    value={`${currData.abbreviation} - ${currData.currency}`}
+                    onChange={() => chooseCurrency()}
                 />
             </span>
 
-            <div className="currency-container" ref={refs}>
+            <div className="currency-container" ref={refs} >
                 <ul className="currency">
                     {
                         data.map(currency => {
                             return (
-                                <li key={currency.id} >
+                                <li key={currency.id} onClick={chooseCurrency(currency)}>
                                     <img className="flag-img" alt='img' src={currency.flag} />
                                     <p>{currency.abbreviation} - {currency.currency}</p>
                                 </li>
